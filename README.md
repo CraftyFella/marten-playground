@@ -12,7 +12,7 @@ docker-compose up -d
 dotnet run --project producer/producer.csproj
 ```
 
-3. Start consumer (not working)
+3. Start consumer
 
 ```
 dotnet run --project consumer/consumer.csproj
