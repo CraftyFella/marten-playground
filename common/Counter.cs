@@ -5,19 +5,19 @@ namespace common
 {
     public class Counter
     {
-        private int _total;
+        public int Total { get; set; }
 
         public void Apply(Event<AnEvent> @event)
         {
-            _total++;
-            Console.WriteLine($"{@event.StreamId}[{@event.Version}]: {_total}");
+            Total++;
+            Console.WriteLine($"{@event.StreamId}[{@event.Version}]: {Total}");
         }
 
         public Guid Id { get; set; }
 
         public override string ToString()
         {
-            return $"Total is {_total}";
+            return $"Total is {Total}";
         }
     }
 }
