@@ -1,4 +1,5 @@
 using System;
+using Marten.Events;
 
 namespace common
 {
@@ -6,10 +7,10 @@ namespace common
     {
         private int _total;
 
-        public void Apply(AnEvent @event)
+        public void Apply(Event<AnEvent> @event)
         {
-            Console.WriteLine($"Applying Event {@event}");
             _total++;
+            Console.WriteLine($"{@event.StreamId}[{@event.Version}]: {_total}");
         }
 
         public Guid Id { get; set; }

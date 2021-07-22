@@ -12,7 +12,7 @@ namespace common
             var store = DocumentStore.For(options =>
             {
                 options.Connection(connectionString);
-                options.AutoCreateSchemaObjects = AutoCreate.CreateOnly;
+                options.AutoCreateSchemaObjects = AutoCreate.None;
                 options.DatabaseSchemaName = "EventStore";
                 options.Events.DatabaseSchemaName = "EventStore";
                 options.Events.AddEventType(typeof(AnEvent));
