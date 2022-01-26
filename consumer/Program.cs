@@ -1,15 +1,17 @@
 ﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using common;
 
 namespace consumer
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            var documentStore = DocumentStoreFactory.Create();
+            var documentStore = DocumentStoreFactory.Create(args.Any());
             using var daemon = documentStore.BuildProjectionDaemon();
-            daemon.StartAll();
+            await daemon.StartAllShards();
             Console.ReadLine();
         }
     }

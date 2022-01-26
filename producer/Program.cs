@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using common;
 
@@ -9,7 +10,7 @@ namespace producer
         static async Task Main(string[] args)
         {
             var stream = Guid.Parse("cb90cb3f-867f-4649-a991-5b84ab526bc1");
-            var documentStore = DocumentStoreFactory.Create();
+            var documentStore = DocumentStoreFactory.Create(args.Any());
             var session = documentStore.OpenSession();
             var eventStore = session.Events;
 
