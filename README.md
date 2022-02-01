@@ -6,7 +6,13 @@
 docker-compose up -d
 ```
 
-2. Start producer
+2. Create Schema
+
+```
+dotnet run --project consumer/consumer.csproj createSchema
+```
+
+3. Start producer
 
 ```
 dotnet run --project producer/producer.csproj
